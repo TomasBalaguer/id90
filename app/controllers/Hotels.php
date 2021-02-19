@@ -7,9 +7,8 @@ class Hotels extends Controller
 
     public function index()
     {
-
     }
-    
+
     public function search()
     {
         $data = $_POST;

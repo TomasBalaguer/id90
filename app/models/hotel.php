@@ -2,8 +2,9 @@
 
 require_once "../app/models/endpoints.php";
 
-class hotel {
-    
+class hotel
+{
+
     private $endpoint;
 
     public function __construct()
@@ -16,6 +17,5 @@ class hotel {
         $this->endpoint->setData($data);
         $res = $this->endpoint->get();
         return $res;
-
     }
 }

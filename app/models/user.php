@@ -2,7 +2,8 @@
 
 require_once("endpoints.php");
 
-class user{
+class user
+{
 
     public $username;
     public $password;
@@ -15,5 +16,4 @@ class user{
         $this->password = $password;
         $this->airline = $airline;
     }
-
 }

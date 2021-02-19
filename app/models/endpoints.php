@@ -1,6 +1,7 @@
 <?php
 
-class endpoints {
+class endpoints
+{
 
     public $url;
     public $type;
@@ -9,12 +10,12 @@ class endpoints {
     public function __construct($url, $data = "")
     {
         $this->url = $url;
-        if(isset($data)) $this->data = $data;
+        if (isset($data)) $this->data = $data;
     }
 
     public function get()
     {
-        if($this->data) $this->format_url($this->data);
+        if ($this->data) $this->format_url($this->data);
         $ch = curl_init();
         curl_setopt($ch, CURLOPT_URL, $this->url);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
@@ -31,7 +32,7 @@ class endpoints {
         curl_setopt($ch, CURLOPT_URL, $this->url);
         curl_setopt($ch, CURLOPT_POST, 1);
         curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
-        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string );
+        curl_setopt($ch, CURLOPT_POSTFIELDS, $fields_string);
         $data = curl_exec($ch);
         $data = json_decode($data, true);
         curl_close($ch);
@@ -39,7 +40,7 @@ class endpoints {
     }
 
     public function format_url($data)
-    {   
+    {
 
         $this->url = $this->url . '?' . urldecode(http_build_query($data));
     }

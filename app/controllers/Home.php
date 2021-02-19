@@ -2,11 +2,11 @@
 
 require_once("../app/models/endpoints.php");
 
-class Home extends Controller{
+class Home extends Controller
+{
 
     public function __construct()
     {
-
     }
 
     public function index()
@@ -21,9 +21,4 @@ class Home extends Controller{
             $this->view('home', ["airlines" => $airlines]);
         }
     }
-
 }
-
-
-
-

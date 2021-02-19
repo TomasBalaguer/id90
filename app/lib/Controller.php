@@ -3,7 +3,8 @@
 //Clase controller principal
 //Se encarga de cargar los modelos y las vistas
 
-class Controller {
+class Controller
+{
 
     //Cargar modelo
     public function model($model)
@@ -14,14 +15,14 @@ class Controller {
         return new $model();
     }
 
-     //Cargar vista
-     public function view($view, $datos = [])
-     {
-         if (file_exists("../app/views/" . $view . ".php")) {
-             $datos = $datos;
+    //Cargar vista
+    public function view($view, $datos = [])
+    {
+        if (file_exists("../app/views/" . $view . ".php")) {
+            $datos = $datos;
             require_once "../app/views/" . $view . ".php";
-         }else{
+        } else {
             die('La vista no existe');
-         }
-     }
+        }
+    }
 }
