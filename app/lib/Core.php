@@ -11,6 +11,8 @@ class Core
     {
         $url = $this->get_url();
 
+        //Chequeamos primer parte de la url
+
         if (file_exists('../app/controllers/' . ucwords($url[0]) . '.php')) {
             $this->controller = ucwords($url[0]);
 
@@ -18,6 +20,9 @@ class Core
         }
 
         require_once "../app/controllers/" . $this->controller . ".php";
+
+        //Seteamos el controlador
+
         $this->controller = new $this->controller;
 
         //Chequeamos segunda parte de la url
@@ -36,7 +41,8 @@ class Core
 
     public function get_url()
     {
-        // echo $_GET['url'];
+        //Obtenemos la url
+        
         if (isset($_GET['url'])) {
             $url = rtrim($_GET['url'], '/');
             $url = filter_var($url, FILTER_SANITIZE_URL);
