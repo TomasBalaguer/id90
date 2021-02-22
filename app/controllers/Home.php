@@ -1,6 +1,7 @@
 <?php
 
 require_once("../app/models/endpoints.php");
+require_once("../app/models/auth.php");
 
 class Home extends Controller
 {
@@ -12,7 +13,7 @@ class Home extends Controller
     public function index()
     {
         //VERIFICAMOS SI EL USUARIO ESTA LOGUEADO
-        if (isset($_SESSION['user'])) {
+        if (auth::isLogged()) {
             $this->view("search");
         } else {
             $airlines = new endpoints("https://beta.id90travel.com/airlines");
