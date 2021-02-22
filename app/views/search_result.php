@@ -75,7 +75,7 @@ if (!isset($_SESSION['user'])) redirect("home");
 
                 <!-- List group-->
                 <ul class="list-group shadow">
-                    <?php if (isset($datos['hotels']['hotels'])) : ?>
+                    <?php if (count($datos['hotels']['hotels']) > 0) : ?>
                         <?php foreach ($datos['hotels']['hotels'] as $hotel) : ?>
 
                             <!-- list group item-->
